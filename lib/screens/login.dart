@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class Login extends StatelessWidget {
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class Register extends StatelessWidget {
                 children: [
                   RichText(
                     text: const TextSpan(
-                      text: "Register",
+                      text: "Login",
                       style: TextStyle(
                         color: Color(0xFF1CE6CD),
                         fontSize: 24,
@@ -42,42 +42,13 @@ class Register extends StatelessWidget {
               ),
               TextField(
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.person_rounded),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Name",
-                ),
-              ),
-              const SizedBox(
-                height: 9,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.person_rounded),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  hintText: "Username",
-                ),
-              ),
-              const SizedBox(
-                height: 9,
-              ),
-              TextField(
-                decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.email_outlined),
                   prefixIconColor: const Color(0xFF6369E8),
                   filled: true,
                   fillColor: const Color(0xFFD9D9D9),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(9)),
-                  hintText: "Email",
+                  hintText: "Email/Username",
                 ),
               ),
               const SizedBox(
@@ -97,18 +68,6 @@ class Register extends StatelessWidget {
               ),
               const SizedBox(
                 height: 9,
-              ),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.password),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Re-enter password",
-                ),
               ),
               const SizedBox(
                 height: 48,
@@ -136,7 +95,7 @@ class Register extends StatelessWidget {
               ),
               RichText(
                 text: const TextSpan(
-                  text: "Existing User ?",
+                  text: "New User ?",
                   style: TextStyle(
                     color: Color(0xFF1CE6CD),
                     decoration: TextDecoration.underline,
@@ -147,7 +106,7 @@ class Register extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/login');
+                    Navigator.pushReplacementNamed(context, '/register');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1CE6CD),
@@ -156,7 +115,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    "Login",
+                    "Register",
                     style: TextStyle(
                       color: Color(0xFF785FE9),
                     ),
