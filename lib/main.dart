@@ -1,5 +1,6 @@
 import 'package:b_tour/screens/home.dart';
 import 'package:b_tour/screens/login.dart';
+import 'package:b_tour/screens/place_detail.dart';
 import 'package:b_tour/screens/register.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class MainApp extends StatelessWidget {
         '/register': (context) => const Register(),
         '/login': (context) => const Login(),
         '/home': (context) => const Home(),
+        '/place-detail': (context) => const PlaceDetail(),
       },
     );
   }
