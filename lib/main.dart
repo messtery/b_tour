@@ -1,3 +1,4 @@
+import 'package:b_tour/screens/home.dart';
 import 'package:b_tour/screens/login.dart';
 import 'package:b_tour/screens/register.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/login',
+      initialRoute: '/home',
+      debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
         '/register': (context) => const Register(),
         '/login': (context) => const Login(),
+        '/home': (context) => const Home(),
       },
     );
   }

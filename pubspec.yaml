@@ -19,6 +19,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/logo.png
+    - assets/images/desa-pinggan.png
+    - assets/images/diamond-beach.png
+    - assets/images/pulau-padar.png
+    - assets/images/pulo-cinta.png
   fonts:
     - family: Quicksand
       fonts:
