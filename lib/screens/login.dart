@@ -1,3 +1,6 @@
+import 'package:b_tour/components/custom_elevated_button.dart';
+import 'package:b_tour/components/custom_link_text.dart';
+import 'package:b_tour/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -40,31 +43,17 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Email/Username",
-                ),
+              const CustomTextField(
+                prefixIcon: Icon(Icons.email_outlined),
+                hintText: "Email/Username",
               ),
               const SizedBox(
                 height: 9,
               ),
-              TextField(
+              const CustomTextField(
+                prefixIcon: Icon(Icons.password),
+                hintText: "Password",
                 obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.password),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Password",
-                ),
               ),
               const SizedBox(
                 height: 9,
@@ -74,52 +63,28 @@ class Login extends StatelessWidget {
               ),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1CE6CD),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                  ),
-                  child: const Text(
-                    "Create Account",
-                    style: TextStyle(
-                      color: Color(0xFF785FE9),
-                    ),
-                  ),
+                child: CustomElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/home',
+                      (route) => false,
+                    );
+                  },
+                  text: "Login",
                 ),
               ),
               const SizedBox(
                 height: 117,
               ),
-              RichText(
-                text: const TextSpan(
-                  text: "New User ?",
-                  style: TextStyle(
-                    color: Color(0xFF1CE6CD),
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
+              const CustomLinkText(text: "New User ?"),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: CustomElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, '/register');
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1CE6CD),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                  ),
-                  child: const Text(
-                    "Register",
-                    style: TextStyle(
-                      color: Color(0xFF785FE9),
-                    ),
-                  ),
+                  text: "Register",
                 ),
               ),
             ],

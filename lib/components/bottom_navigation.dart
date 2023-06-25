@@ -28,9 +28,22 @@ class BottomNavigation extends StatelessWidget {
       onTap: (int index) {
         switch (index) {
           case 0:
-          Navigator.of(context).pushNamedAndRemoveUntil('/home', (route) => false);
+            if (index != currentIndex) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/home',
+                (route) => false,
+              );
+            }
           case 1:
-          Navigator.pushNamed(context, '/profile');
+            if (index != currentIndex) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/home',
+                (route) => false,
+              );
+              Navigator.pushNamed(context, '/profile');
+            }
         }
       },
     );
