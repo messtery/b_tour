@@ -23,6 +23,7 @@ flutter:
     - assets/images/diamond-beach.png
     - assets/images/pulau-padar.png
     - assets/images/pulo-cinta.png
+    - assets/images/avatar.png
   fonts:
     - family: Quicksand
       fonts:

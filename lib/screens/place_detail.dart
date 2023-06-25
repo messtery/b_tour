@@ -1,3 +1,4 @@
+import 'package:b_tour/components/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class PlaceDetail extends StatelessWidget {
@@ -22,8 +23,7 @@ class PlaceDetail extends StatelessWidget {
             color: Colors.black,
           ),
           onPressed: () {
-            // Handle back button press
-            // You can use Navigator.pop(context) to navigate back
+            Navigator.pop(context);
           },
         ),
       ),
@@ -120,6 +120,7 @@ class PlaceDetail extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavigation(currentIndex: 0),
     );
   }
 }

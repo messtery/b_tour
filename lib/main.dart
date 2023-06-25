@@ -1,6 +1,8 @@
+import 'package:b_tour/screens/edit_profile.dart';
 import 'package:b_tour/screens/home.dart';
 import 'package:b_tour/screens/login.dart';
 import 'package:b_tour/screens/place_detail.dart';
+import 'package:b_tour/screens/profile.dart';
 import 'package:b_tour/screens/register.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Quicksand',
+      ),
       initialRoute: '/home',
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
@@ -21,6 +26,8 @@ class MainApp extends StatelessWidget {
         '/login': (context) => const Login(),
         '/home': (context) => const Home(),
         '/place-detail': (context) => const PlaceDetail(),
+        '/profile': (context) => const Profile(),
+        '/edit-profile': (context) => const EditProfile(),
       },
     );
   }
