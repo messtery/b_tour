@@ -1,3 +1,6 @@
+import 'package:b_tour/components/custom_elevated_button.dart';
+import 'package:b_tour/components/custom_link_text.dart';
+import 'package:b_tour/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
@@ -32,6 +35,7 @@ class Register extends StatelessWidget {
                       style: TextStyle(
                         color: Color(0xFF1CE6CD),
                         fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -40,127 +44,61 @@ class Register extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.person_rounded),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Name",
-                ),
+              const CustomTextField(
+                prefixIcon: Icon(Icons.person_rounded),
+                hintText: "Name",
               ),
               const SizedBox(
                 height: 9,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.person_rounded),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  hintText: "Username",
-                ),
+              const CustomTextField(
+                prefixIcon: Icon(Icons.person_rounded),
+                hintText: "Username",
               ),
               const SizedBox(
                 height: 9,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Email",
-                ),
+              const CustomTextField(
+                prefixIcon: Icon(Icons.email_outlined),
+                hintText: "Email",
               ),
               const SizedBox(
                 height: 9,
               ),
-              TextField(
+              const CustomTextField(
+                prefixIcon: Icon(Icons.password),
+                hintText: "Password",
                 obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.password),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Password",
-                ),
               ),
               const SizedBox(
                 height: 9,
               ),
-              TextField(
+              const CustomTextField(
+                prefixIcon: Icon(Icons.password),
+                hintText: "Re-enter password",
                 obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.password),
-                  prefixIconColor: const Color(0xFF6369E8),
-                  filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(9)),
-                  hintText: "Re-enter password",
-                ),
               ),
               const SizedBox(
                 height: 48,
               ),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: CustomElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1CE6CD),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                  ),
-                  child: const Text(
-                    "Create Account",
-                    style: TextStyle(
-                      color: Color(0xFF785FE9),
-                    ),
-                  ),
+                  text: "Create Account",
                 ),
               ),
               const SizedBox(
                 height: 117,
               ),
-              RichText(
-                text: const TextSpan(
-                  text: "Existing User ?",
-                  style: TextStyle(
-                    color: Color(0xFF1CE6CD),
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
+              const CustomLinkText(text: "Existing User ?"),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: CustomElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, '/login');
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1CE6CD),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                  ),
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Color(0xFF785FE9),
-                    ),
-                  ),
+                  text: "Login",
                 ),
               ),
             ],

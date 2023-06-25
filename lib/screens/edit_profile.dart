@@ -54,7 +54,7 @@ class _EditProfileState extends State<EditProfile> {
               padding: const EdgeInsets.only(right: 24.0),
               child: GestureDetector(
                 onTap: () {
-                  print("clicked done");
+                  // Handle click here
                 },
                 child: const Text(
                   "Done",

@@ -85,20 +85,74 @@ class Home extends StatelessWidget {
                     flex: 45,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/place-detail');
+                        },
+                        child: Container(
+                          height: 200,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'assets/images/desa-pinggan.png',
+                              ),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Container(
+                                padding: const EdgeInsets.all(16.0),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(75, 0, 0, 0),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: const Text(
+                                  'Desa Pinggan',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/place-detail');
+                      },
                       child: Container(
-                        height: 200,
+                        height: 150,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                              'assets/images/desa-pinggan.png',
+                              'assets/images/pulau-padar.png',
                             ),
                             fit: BoxFit.fill,
                           ),
                         ),
                         child: Align(
-                          alignment: Alignment.topCenter,
+                          alignment: Alignment.bottomLeft,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
+                            padding: const EdgeInsets.only(
+                              bottom: 8.0,
+                              left: 8.0,
+                            ),
                             child: Container(
                               padding: const EdgeInsets.all(16.0),
                               decoration: BoxDecoration(
@@ -106,7 +160,7 @@ class Home extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: const Text(
-                                'Desa Pinggan',
+                                'Pulau Padar',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -127,79 +181,40 @@ class Home extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: 150,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/pulau-padar.png',
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 8.0,
-                            left: 8.0,
-                          ),
-                          child: Container(
-                            padding: const EdgeInsets.all(16.0),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(75, 0, 0, 0),
-                              borderRadius: BorderRadius.circular(8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/place-detail');
+                      },
+                      child: Container(
+                        height: 150,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/images/pulo-cinta.png',
                             ),
-                            child: const Text(
-                              'Pulau Padar',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              bottom: 8.0,
+                              left: 8.0,
+                            ),
+                            child: Container(
+                              padding: const EdgeInsets.all(16.0),
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(75, 0, 0, 0),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 150,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/pulo-cinta.png',
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 8.0,
-                            left: 8.0,
-                          ),
-                          child: Container(
-                            padding: const EdgeInsets.all(16.0),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(75, 0, 0, 0),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: const Text(
-                              'Pulo Cinta',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                              child: const Text(
+                                'Pulo Cinta',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),

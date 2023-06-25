@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Quicksand',
       ),
-      initialRoute: '/home',
+      initialRoute: '/login',
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
         '/register': (context) => const Register(),
