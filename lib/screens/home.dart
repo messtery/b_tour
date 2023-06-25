@@ -1,3 +1,4 @@
+import 'package:b_tour/components/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -41,32 +42,37 @@ class Home extends StatelessWidget {
                     flex: 55,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: Container(
-                        height: 200,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/diamond-beach.png',
-                            ),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Container(
-                              padding: const EdgeInsets.all(16.0),
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(75, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(8.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/place-detail');
+                        },
+                        child: Container(
+                          height: 200,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'assets/images/diamond-beach.png',
                               ),
-                              child: const Text(
-                                'Diamond Beach',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Container(
+                                padding: const EdgeInsets.all(16.0),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(75, 0, 0, 0),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: const Text(
+                                  'Diamond Beach',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
@@ -207,6 +213,7 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavigation(currentIndex: 0),
     );
   }
 }
