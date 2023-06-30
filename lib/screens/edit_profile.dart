@@ -1,5 +1,7 @@
+import 'package:b_tour/bloc/user/profile/profile_bloc.dart';
 import 'package:b_tour/components/bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -18,18 +20,13 @@ class _EditProfileState extends State<EditProfile> {
   @override
   void initState() {
     super.initState();
-    _emailAddressController.text = "iekevin.ya@gmail.com";
-    _nameController.text = "Kevin";
-    _usernameController.text = "@ke_pin";
-    _passwordController.text = "123456";
-    _isPasswordVisible = false;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Edit Profile"),
+        title: const Text("View Profile"),
         titleTextStyle: const TextStyle(
           color: Colors.black,
           fontSize: 20,
@@ -47,122 +44,100 @@ class _EditProfileState extends State<EditProfile> {
             Navigator.pop(context);
           },
         ),
-        actions: [
-          Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 24.0),
-              child: GestureDetector(
-                onTap: () {
-                  // Handle click here
-                },
-                child: const Text(
-                  "Done",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.all(24.0),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 145,
-                    width: 145,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/avatar.png'),
-                        fit: BoxFit.fill,
+      body: BlocProvider(
+        create: (context) => ProfileBloc()..add(ProfileIndexEvent()),
+        child: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(24.0),
+            child: BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                if (state is ProfileLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is ProfileError) {
+                  return Center(
+                    child: Text(state.message),
+                  );
+                } else if (state is ProfileLoaded) {
+                  _nameController.text =
+                      state.listProfileModel.profileModel!.name.toString();
+                  _emailAddressController.text =
+                      state.listProfileModel.profileModel!.email.toString();
+                  _usernameController.text =
+                      state.listProfileModel.profileModel!.username.toString();
+                  return Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 145,
+                            width: 145,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/avatar.png"),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 34,
-              ),
-              TextField(
-                controller: _emailAddressController,
-                decoration: const InputDecoration(
-                    labelText: "Email Address",
-                    labelStyle: TextStyle(
-                      fontWeight: FontWeight.normal,
-                    )),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-              TextField(
-                controller: _nameController,
-                decoration: const InputDecoration(
-                    labelText: "Name",
-                    labelStyle: TextStyle(
-                      fontWeight: FontWeight.normal,
-                    )),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-              TextField(
-                controller: _usernameController,
-                decoration: const InputDecoration(
-                  labelText: "Username",
-                  labelStyle: TextStyle(
-                    fontWeight: FontWeight.normal,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.check_circle_outline_rounded,
-                    color: Colors.green,
-                    size: 18,
-                  ),
-                ),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-              TextField(
-                controller: _passwordController,
-                obscureText: !_isPasswordVisible,
-                obscuringCharacter: '*',
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  labelStyle: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                  ),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      !_isPasswordVisible
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      size: 18,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _isPasswordVisible = !_isPasswordVisible;
-                      });
-                    },
-                  ),
-                ),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-            ],
+                      const SizedBox(
+                        height: 34,
+                      ),
+                      TextField(
+                        controller: _emailAddressController,
+                        enabled: false,
+                        decoration: const InputDecoration(
+                            labelText: "Email Address",
+                            labelStyle: TextStyle(
+                              fontWeight: FontWeight.normal,
+                            )),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      TextField(
+                        enabled: false,
+                        controller: _nameController,
+                        decoration: const InputDecoration(
+                            labelText: "Name",
+                            labelStyle: TextStyle(
+                              fontWeight: FontWeight.normal,
+                            )),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      TextField(
+                        enabled: false,
+                        controller: _usernameController,
+                        decoration: const InputDecoration(
+                          labelText: "Username",
+                          labelStyle: TextStyle(
+                            fontWeight: FontWeight.normal,
+                          ),
+                          suffixIcon: Icon(
+                            Icons.check_circle_outline_rounded,
+                            color: Colors.green,
+                            size: 18,
+                          ),
+                        ),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return Container();
+              },
+            ),
           ),
         ),
       ),

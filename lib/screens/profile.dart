@@ -1,9 +1,12 @@
 import 'package:b_tour/components/bottom_navigation.dart';
 import 'package:b_tour/components/logout_confirm_dialog.dart';
+import 'package:b_tour/core/session_manager.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  Profile({super.key});
+
+  final sessionManager = SessionManager();
 
   @override
   Widget build(BuildContext context) {
@@ -51,24 +54,24 @@ class Profile extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Kevin",
-                    style: TextStyle(
+                    "${sessionManager.getActiveFirstName()}",
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "iekevin.ya@gmail.com",
-                    style: TextStyle(
+                    "${sessionManager.getActiveEmail()}",
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -93,7 +96,7 @@ class Profile extends StatelessWidget {
                       color: Colors.black,
                     ),
                     Text(
-                      "Edit Profile",
+                      "View Profile",
                       style: TextStyle(
                         color: Colors.black,
                       ),
