@@ -1,3 +1,5 @@
+import 'package:b_tour/core/session_manager.dart';
+import 'package:b_tour/screens/user/login.dart';
 import 'package:flutter/material.dart';
 
 class LogoutConfirmDialog extends StatelessWidget {
@@ -45,7 +47,14 @@ class LogoutConfirmDialog extends StatelessWidget {
                         color: const Color(0xFF1CE6CD),
                       ),
                       child: TextButton(
-                        onPressed: () => Navigator.pop(context, 'Yes'),
+                        onPressed: () {
+                          final sessionManager = SessionManager();
+                          sessionManager.signout();
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()),
+                              (route) => false);
+                        },
                         child: const Text(
                           'Yes',
                           style: TextStyle(

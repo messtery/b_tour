@@ -1,10 +1,10 @@
 import 'package:b_tour/core/bloc/app_setting_bloc.dart';
 import 'package:b_tour/core/session_manager.dart';
-import 'package:b_tour/screens/edit_profile.dart';
+import 'package:b_tour/screens/user/edit_profile.dart';
 import 'package:b_tour/screens/home.dart';
 import 'package:b_tour/screens/user/login.dart';
 import 'package:b_tour/screens/place_detail.dart';
-import 'package:b_tour/screens/profile.dart';
+import 'package:b_tour/screens/user/profile.dart';
 import 'package:b_tour/screens/user/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

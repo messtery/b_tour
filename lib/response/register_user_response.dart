@@ -8,7 +8,7 @@ class RegisterUserResponse {
 
   factory RegisterUserResponse.fromJson(Map<String, dynamic> json) {
     return RegisterUserResponse(
-      userModel: UserModel.fromJson(json["data"]),
+      userModel: UserModel.fromJson(json),
       message: "Berhasil menambahkan Data User",
     );
   }
